@@ -5,12 +5,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  REGISTRY: crpi-znv6cb59loeyd8eu.cn-hangzhou.personal.cr.aliyuncs.com/wuleitest/wulei2
+  DOCKERHUB_USER: ${{ secrets.ALIYUN_REGISTRY_USER }}
+  DOCKERHUB_TOKEN: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
 
 jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu/squid:latest crpi-znv6cb59loeyd8eu.cn-hangzhou.personal.cr.aliyuncs.com/wuleitest/wulei2:latest
 
     steps:
     - uses: actions/checkout@v4
